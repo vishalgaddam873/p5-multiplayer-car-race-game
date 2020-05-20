@@ -7,56 +7,41 @@ class Player {
   }
 
   getCount() {
-    var playerCountRef = db
-      .collection("users")
-      .doc(user_document_id)
-      .onSnapshot((doc) => {
-        playerCount = doc.data().player_count;
-      });
+    var playerCountRef = db.ref(`users/${emailKey}/player_count/`);
+    playerCountRef.on("value", (data) => {
+      playerCount = data.val();
+    });
   }
 
   updateCount(count) {
-    db.collection("users").doc(user_document_id).update({
+    db.ref(`users/${emailKey}/`).update({
       player_count: count,
     });
   }
 
   update() {
-    var playerIndex = "player" + this.index;
-
-    allPlayers[playerIndex] = {
+    var playerIndex = "players/player" + this.index;
+    db.ref(`users/${emailKey}/${playerIndex}`).set({
       name: this.name,
       distance: this.distance,
-    };
-
-    db.collection("users").doc(user_document_id).update({
-      players: allPlayers,
     });
-
-    console.log(allPlayers[playerIndex]);
   }
 
   static getPlayerInfo() {
-    var playerInfoRef = db
-      .collection("users")
-      .doc(user_document_id)
-      .get()
-      .then((doc) => {
-        allPlayers = doc.data().players;
-      });
+    var playerInfoRef = db.ref(`users/${emailKey}/players/`);
+    playerInfoRef.on("value", (data) => {
+      allPlayers = data.val();
+    });
   }
 
   getCarsAtEnd() {
-    db.collection("users")
-      .doc(user_document_id)
-      .get()
-      .then((doc) => {
-        this.rank = doc.data().cars_at_end;
-      });
+    db.ref(`users/${emailKey}/cars_at_end/`).on("value", (data) => {
+      this.rank = data.val();
+    });
   }
 
   static updateCarsAtEnd(rank) {
-    db.collection("users").doc(user_document_id).update({
+    db.ref(`users/${emailKey}/`).update({
       cars_at_end: rank,
     });
   }

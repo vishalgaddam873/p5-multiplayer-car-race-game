@@ -1,8 +1,11 @@
 class SignUpForm {
   constructor() {
-    this.email = createInput("Email Id");
-    this.password = createInput("Password");
-    this.title = createElement("h2");
+    this.email = createInput("").attribute("placeholder", "Email ID");
+    this.password = createInput("", "password").attribute(
+      "placeholder",
+      "Password"
+    );
+    this.title = createElement("h1");
     this.loginButton = createButton("Log In");
     this.signupButton = createButton("Sign Up");
   }
@@ -22,7 +25,7 @@ class SignUpForm {
     fireAuth
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        var emailKey = email.split("@").join("").split(".").join("");
+        emailKey = email.split("@").join("").split(".").join("");
 
         db.ref(`users/${emailKey}/`).set({
           email: email,
@@ -48,7 +51,6 @@ class SignUpForm {
       .then((response) => {
         game.getState(email);
         this.hide();
-        this.hideTitle();
       })
       .catch((error) => {
         // Handle Errors here.
@@ -59,13 +61,19 @@ class SignUpForm {
   }
 
   display() {
-    this.title.html("Welcome To Car Racing Game");
-    this.title.position(displayWidth / 2.4, 0);
+    this.email.class("email");
+    this.password.class("email");
+    // this.title = createElement("h1");
+    this.loginButton.class("loginButton");
+    this.signupButton.class("loginButton");
 
-    this.email.position(displayWidth / 2 - 40, displayHeight / 2 - 80);
-    this.password.position(displayWidth / 2 - 40, displayHeight / 2 - 40);
-    this.loginButton.position(displayWidth / 2, displayHeight / 2);
-    this.signupButton.position(displayWidth / 2, displayHeight / 2 + 30);
+    this.title.html("Forza Horizon 3");
+    this.title.position(width / 2.35, 0);
+
+    this.email.position(width / 2.3, height / 2 - 120);
+    this.password.position(width / 2.3, height / 2 - 60);
+    this.loginButton.position(width / 2.3, height / 2);
+    this.signupButton.position(width / 2.3, height / 1.7);
 
     this.signupButton.mousePressed(() => {
       this.signUp(this.email.value(), this.password.value());

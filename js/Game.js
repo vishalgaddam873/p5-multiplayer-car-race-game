@@ -1,21 +1,19 @@
+// const Swal = require("sweetalert2");
+
 class Game {
   constructor() {}
 
   getState(email) {
-    console.log(" I ma ");
-    var gameStateRef = db
-      .collection("users")
-      .where("email", "==", email)
-      .onSnapshot((snapshot) => {
-        snapshot.forEach((doc) => {
-          user_document_id = doc.id;
-          gameState = doc.data().game_state;
-        });
-      });
+    emailKey = email.split("@").join("").split(".").join("");
+
+    var gameStateRef = db.ref(`users/${emailKey}/game_state/`);
+    gameStateRef.on("value", function (data) {
+      gameState = data.val();
+    });
   }
 
   update(state) {
-    db.collection("users").doc(user_document_id).update({
+    db.ref(`users/${emailKey}/`).update({
       game_state: state,
     });
   }
@@ -29,26 +27,16 @@ class Game {
     // //When user loged in successfully
     if (gameState === 0) {
       var playerCountRef = await db
-        .collection("users")
-        .doc(user_document_id)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            playerCount = doc.data().player_count;
-            allPlayers = doc.data().players;
-            player.getCount();
-          }
+        .ref(`users/${emailKey}/player_count/`)
+        .once("value");
 
-          form.display();
-        });
+      if (playerCountRef.exists()) {
+        playerCount = playerCountRef.val();
+        player.getCount();
+      }
+
+      form.display();
     }
-
-    car1 = createSprite(100, 200);
-    car1.addImage("car1", car1_img);
-    car2 = createSprite(300, 200);
-    car2.addImage("car2", car2_img);
-
-    cars = [car1, car2];
   }
 
   play() {
@@ -98,10 +86,18 @@ class Game {
       player.update();
     }
 
-    if (player.distance > 3860) {
+    if (player.distance > 4340) {
+
       gameState = 2;
       player.rank += 1;
       Player.updateCarsAtEnd(player.rank);
+      swal({
+        title: `Awesome!${"\n"}Rank${"\n"}${player.rank}`,
+        text: "You reached the finish line successfully",
+        imageUrl: "../images/cup.png",
+        imageSize: '100x100',
+        confirmButtonText: "Ok",
+      });
     }
 
     drawSprites();
