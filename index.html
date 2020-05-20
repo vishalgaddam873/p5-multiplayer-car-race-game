@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Car Race</title>
+
+    <script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
+    <script src="libraries/p5.sound.js"></script>
+    <script src="libraries/p5.play.js"></script>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+
+    <!-- Previously loaded Firebase SDKs -->
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBRKfGHLZvWH0ESxU4wHp1ZjezE-KnqIfc",
+        authDomain: "trail-car-racing-game.firebaseapp.com",
+        databaseURL: "https://trail-car-racing-game.firebaseio.com",
+        projectId: "trail-car-racing-game",
+        storageBucket: "trail-car-racing-game.appspot.com",
+        messagingSenderId: "809504125855",
+        appId: "1:809504125855:web:e01158da432a1d318303aa",
+        measurementId: "G-QT1S8HRQL8",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      canvas {
+        display: flex;
+        align-self: center;
+        border: 5px solid black;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="js/SignUp.js"></script>
+    <script src="js/Form.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Game.js"></script>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
