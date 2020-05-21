@@ -55,7 +55,7 @@ class Game {
       var index = 0;
 
       //x and y position of the cars
-      var x = width/ 2 - 680;
+      var x = width / 2 - 680;
       var y;
 
       for (var plr in allPlayers) {
@@ -87,15 +87,14 @@ class Game {
     }
 
     if (player.distance > 3800) {
-
       gameState = 2;
       player.rank += 1;
       Player.updateCarsAtEnd(player.rank);
       swal({
         title: `Awesome!${"\n"}Rank${"\n"}${player.rank}`,
         text: "You reached the finish line successfully",
-        imageUrl: "../images/cup.png",
-        imageSize: '100x100',
+        imageUrl: "../assets/cup.png",
+        imageSize: "100x100",
         confirmButtonText: "Ok",
       });
     }

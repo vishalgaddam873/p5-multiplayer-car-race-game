@@ -9,13 +9,15 @@ var playerCount;
 
 var gameState = null;
 var backgroundImage;
+var song;
 
 function preload() {
-  backgroundImage = loadImage("./images/bg.png");
-  track = loadImage("./images/track.jpg");
-  car1_img = loadImage("./images/car1.png");
-  car2_img = loadImage("./images/car2.png");
-  ground = loadImage("./images/ground.png");
+  backgroundImage = loadImage("./assets/bg.png");
+  track = loadImage("./assets/track.jpg");
+  car1_img = loadImage("./assets/car1.png");
+  car2_img = loadImage("./assets/car2.png");
+  ground = loadImage("./assets/ground.png");
+  song = loadSound("assets/music/bg.mp3");
 }
 
 function setup() {
@@ -34,6 +36,7 @@ function setup() {
   car2.addImage("car2", car2_img);
 
   cars = [car1, car2];
+  song.loop();
 }
 
 function draw() {
@@ -58,4 +61,13 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+function mouseClicked() {
+  if (song.isPlaying()) {
+    // .isPlaying() returns a boolean
+    song.pause(); // .play() will resume from .pause() position
+  } else {
+    song.play();
+  }
 }
