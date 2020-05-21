@@ -4,7 +4,6 @@ class Form {
     this.button = createButton("Play");
     this.greeting = createElement("h2");
     this.greeting2 = createElement("h3");
-    this.reset = createButton("Reset");
   }
   hide() {
     this.greeting.hide();
@@ -16,11 +15,9 @@ class Form {
   display() {
     this.input.class("email");
     this.button.class("loginButton");
-    this.reset.class("loginButton");
 
     this.input.position(width / 2.3, height / 2 - 120);
     this.button.position(width / 2.3, height / 2 - 60);
-    this.reset.position(width - 250, 20);
 
     this.button.mousePressed(() => {
       this.input.hide();
@@ -35,13 +32,6 @@ class Form {
 
       this.greeting2.html("Waiting for other players to join ....");
       this.greeting2.position(width / 2.4, height / 3.2);
-    });
-
-    this.reset.mousePressed(() => {
-      player.updateCount(0);
-      game.update(0);
-      Player.updateCarsAtEnd(0);
-      window.location.reload();
     });
   }
 }

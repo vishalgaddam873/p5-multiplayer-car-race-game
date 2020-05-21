@@ -1,7 +1,9 @@
 // const Swal = require("sweetalert2");
 
 class Game {
-  constructor() {}
+  constructor() {
+    this.reset = createButton("Reset");
+  }
 
   getState(email) {
     emailKey = email.split("@").join("").split(".").join("");
@@ -40,7 +42,10 @@ class Game {
   }
 
   play() {
+    console.log("Here");
     form.hide();
+    this.reset.class("loginButton");
+    this.reset.position(width - 250, 20);
 
     Player.getPlayerInfo();
     player.getCarsAtEnd();
@@ -99,6 +104,13 @@ class Game {
         confirmButtonText: "Ok",
       });
     }
+
+    this.reset.mousePressed(() => {
+      player.updateCount(0);
+      game.update(0);
+      Player.updateCarsAtEnd(0);
+      window.location.reload();
+    });
 
     drawSprites();
   }

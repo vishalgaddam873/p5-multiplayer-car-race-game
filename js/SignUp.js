@@ -44,7 +44,7 @@ class SignUpForm {
         swal({
           title: "SignUp Unsuccessful!",
           text: `${errorMessage}`,
-          type:"error",
+          type: "error",
           confirmButtonText: "Ok",
         });
       });
@@ -64,7 +64,7 @@ class SignUpForm {
         swal({
           title: "Login Unsuccessful!",
           text: `${errorMessage}`,
-          type:"error",
+          type: "error",
           confirmButtonText: "Ok",
         });
       });
