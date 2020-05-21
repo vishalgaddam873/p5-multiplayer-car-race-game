@@ -21,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(displayWidth, displayHeight);
   fireAuth = firebase.auth();
   db = firebase.database();
 
@@ -60,7 +60,7 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(displayWidth, displayHeight);
 }
 
 function mouseClicked() {
