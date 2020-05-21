@@ -42,7 +42,6 @@ class Game {
   }
 
   play() {
-    console.log("Here");
     form.hide();
     this.reset.class("loginButton");
     this.reset.position(width - 250, 20);
@@ -91,7 +90,7 @@ class Game {
       player.update();
     }
 
-    if (player.distance > 4380) {
+    if (player.distance > height * 5 - 100) {
       gameState = 2;
       player.rank += 1;
       Player.updateCarsAtEnd(player.rank);
