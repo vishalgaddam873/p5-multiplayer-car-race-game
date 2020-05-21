@@ -31,7 +31,7 @@ class Form {
       this.greeting.position(width / 2 - 70, height / 4);
 
       this.greeting2.html("Waiting for other players to join ....");
-      this.greeting2.position(width / 2.4, height / 3.2);
+      this.greeting2.position(width / 3, height / 3.2);
     });
   }
 }
