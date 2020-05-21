@@ -11,7 +11,7 @@ var gameState = null;
 var backgroundImage;
 
 function preload() {
-  backgroundImage = loadImage("./images/bg.jpg");
+  backgroundImage = loadImage("./images/bg.png");
   track = loadImage("./images/track.jpg");
   car1_img = loadImage("./images/car1.png");
   car2_img = loadImage("./images/car2.png");
@@ -28,7 +28,7 @@ function setup() {
   player = new Player();
   form = new Form();
 
-  car1 = createSprite(width/2, 200);
+  car1 = createSprite(width / 2, 200);
   car1.addImage("car1", car1_img);
   car2 = createSprite(width - 300, 200);
   car2.addImage("car2", car2_img);

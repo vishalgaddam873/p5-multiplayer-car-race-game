@@ -41,7 +41,12 @@ class SignUpForm {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
+        swal({
+          title: "SignUp Unsuccessful!",
+          text: `${errorMessage}`,
+          type:"error",
+          confirmButtonText: "Ok",
+        });
       });
   }
 
@@ -56,7 +61,12 @@ class SignUpForm {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
+        swal({
+          title: "Login Unsuccessful!",
+          text: `${errorMessage}`,
+          type:"error",
+          confirmButtonText: "Ok",
+        });
       });
   }
 
@@ -67,8 +77,8 @@ class SignUpForm {
     this.loginButton.class("loginButton");
     this.signupButton.class("loginButton");
 
-    this.title.html("Forza Horizon 3");
-    this.title.position(width / 2.35, 0);
+    this.title.html("Warriors Of Speed");
+    this.title.position(width / 2.4, 10);
 
     this.email.position(width / 2.3, height / 2 - 120);
     this.password.position(width / 2.3, height / 2 - 60);

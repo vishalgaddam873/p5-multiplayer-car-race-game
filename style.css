@@ -10,10 +10,16 @@ canvas {
   margin: auto;
 }
 
-h1 {
-  color:red;
+h1{
+  color: #ff5722;
   text-align: center;
 }
+
+h2, h3 {
+  color: #fff;
+  text-align: center;
+}
+
 
 .email {
   width:200px;
@@ -22,14 +28,14 @@ h1 {
   border-radius: 10px;
   border: 1px solid black;
   padding: 5px;
-  background-color: transparent;
+  background-color: white;
 }
 
 
 .loginButton {
   width:200px;
   height:60px;
-  background-color: #4CAF50; /* Green */
+  background-color: #ff8a65; /* orange */
   border: none;
   color: white;
   padding: 15px 32px;
