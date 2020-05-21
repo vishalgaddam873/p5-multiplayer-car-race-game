@@ -93,7 +93,8 @@ class Game {
       swal({
         title: `Awesome!${"\n"}Rank${"\n"}${player.rank}`,
         text: "You reached the finish line successfully",
-        imageUrl: "../assets/cup.png",
+        imageUrl:
+          "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
         imageSize: "100x100",
         confirmButtonText: "Ok",
       });
