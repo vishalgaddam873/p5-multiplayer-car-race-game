@@ -5,7 +5,7 @@ var allPlayers;
 var form;
 var cars, car1, car2;
 var track, car1_img, car2_img;
-var playerCount;
+var playerCount, gauge;
 
 var gameState = null;
 var backgroundImage;
@@ -29,6 +29,7 @@ function setup() {
   signUp = new SignUpForm();
   player = new Player();
   form = new Form();
+  // gauge = new Gauge(200, 200, "Speedometer");
 
   car1 = createSprite(width / 2, 200);
   car1.addImage("car1", car1_img);
