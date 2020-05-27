@@ -5,13 +5,13 @@ class SignUpForm {
       "placeholder",
       "Password"
     );
-    this.title = createElement("h1");
+    this.logoImage = createImg("../assets/logo.png");
     this.loginButton = createButton("Log In");
     this.signupButton = createButton("Sign Up");
   }
 
-  hideTitle() {
-    this.title.hide();
+  hidelogoImage() {
+    this.logoImage.hide();
   }
 
   hide() {
@@ -73,12 +73,11 @@ class SignUpForm {
   display() {
     this.email.class("email");
     this.password.class("email");
-    // this.title = createElement("h1");
+    // this.logoImage = createElement("h1");
     this.loginButton.class("loginButton");
     this.signupButton.class("loginButton");
 
-    this.title.html("Warriors Of Speed");
-    this.title.position(width / 2.4, 10);
+    this.logoImage.position(width /3.2,10);
 
     this.email.position(width / 2.3, height / 2 - 120);
     this.password.position(width / 2.3, height / 2 - 60);

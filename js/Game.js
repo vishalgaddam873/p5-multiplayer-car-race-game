@@ -2,7 +2,7 @@
 
 class Game {
   constructor() {
-    this.reset = createButton("Reset");
+    this.reset = createImg("../assets/settings.png");
   }
 
   getState(email) {
@@ -43,8 +43,8 @@ class Game {
 
   play() {
     form.hide();
-    this.reset.class("loginButton");
-    this.reset.position(width - 250, 20);
+    this.reset.class("volumeButton");
+    this.reset.position(width - 150, 200);
 
     Player.getPlayerInfo();
     player.getCarsAtEnd();

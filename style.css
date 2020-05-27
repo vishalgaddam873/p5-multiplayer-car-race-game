@@ -16,7 +16,7 @@ h1{
 }
 
 h2, h3 {
-  color: #fff176;
+  color: #880e4f;
   font-size: 30px;
   text-align: center;
 }
@@ -25,27 +25,42 @@ h2, h3 {
 .email {
   width:200px;
   height:30px;
-  outline:none;
-  border-radius: 10px;
   border: 1px solid black;
+  border-radius: 10px;
   padding: 5px;
   background-color: white;
+  outline:none;
+
 }
 
 
 .loginButton {
   width:200px;
   height:60px;
-  background-color: #ff8a65; /* orange */
+  background-color: #fea834; 
   border: none;
-  color: white;
+  color: #000;
+  font-weight:bold;
   padding: 15px 32px;
+  border-radius: 15px;
   margin-bottom:100px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+.volumeButton {
+  width:100px;
+  height:100px;
+  background-color: #fea834;
+  padding:15px;
+  border-radius: 150px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;

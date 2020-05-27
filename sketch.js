@@ -10,13 +10,16 @@ var playerCount, gauge;
 var gameState = null;
 var backgroundImage;
 var song;
+var volume, mute, welcome;
+var volumeIsMuted = false;
 
 function preload() {
-  backgroundImage = loadImage("./assets/bg.png");
+  backgroundImage = loadImage("./assets/bg.jpg");
+  volume = loadImage("./assets/volume.png");
+  mute = loadImage("./assets/mute.png");
   track = loadImage("./assets/track.jpg");
   car1_img = loadImage("./assets/car1.png");
   car2_img = loadImage("./assets/car2.png");
-  ground = loadImage("./assets/ground.png");
   song = loadSound("assets/music/bg.mp3");
 }
 
@@ -26,6 +29,7 @@ function setup() {
   db = firebase.database();
 
   game = new Game();
+  welcome = new Welcome();
   signUp = new SignUpForm();
   player = new Player();
   form = new Form();
@@ -43,7 +47,7 @@ function setup() {
 
 function draw() {
   background(backgroundImage);
-
+  welcome.display();
   if (gameState === null || gameState === 0) {
     game.start();
   }
@@ -66,10 +70,9 @@ function windowResized() {
 }
 
 function mouseClicked() {
-  if (song.isPlaying()) {
-    // .isPlaying() returns a boolean
-    song.pause(); // .play() will resume from .pause() position
-  } else {
-    song.play();
+  if (!volumeIsMuted) {
+    if (!song.isPlaying()) {
+      song.play();
+    }
   }
 }
