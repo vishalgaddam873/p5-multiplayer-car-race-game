@@ -38,6 +38,7 @@ function setup() {
 
   cars = [car1, car2];
   song.loop();
+  song.setVolume(0.1);
 }
 
 function draw() {
