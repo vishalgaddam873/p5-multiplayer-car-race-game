@@ -1,8 +1,7 @@
-// const Swal = require("sweetalert2");
-
 class Game {
   constructor() {
-    this.reset = createImg("../assets/settings.png");
+    this.resetUrl = "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/settings.png"
+    this.reset = createImg(this.resetUrl);
   }
 
   getState(email) {

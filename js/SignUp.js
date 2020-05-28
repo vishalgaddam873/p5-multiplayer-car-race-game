@@ -5,7 +5,8 @@ class SignUpForm {
       "placeholder",
       "Password"
     );
-    this.logoImage = createImg("../assets/logo.png");
+    this.logoUrl = "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/logo.png"
+    this.logoImage = createImg(this.logoUrl);
     this.loginButton = createButton("Log In");
     this.signupButton = createButton("Sign Up");
   }
