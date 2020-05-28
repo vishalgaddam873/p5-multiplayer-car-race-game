@@ -65,10 +65,6 @@ function draw() {
   }
 }
 
-function windowResized() {
-  resizeCanvas(displayWidth, displayHeight);
-}
-
 function mouseClicked() {
   if (!volumeIsMuted) {
     if (song.isPlaying()) {
@@ -77,4 +73,8 @@ function mouseClicked() {
       song.play()
     }
   }
+}
+
+function windowResized() {
+  resizeCanvas(displayWidth, displayHeight);
 }
