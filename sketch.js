@@ -71,8 +71,10 @@ function windowResized() {
 
 function mouseClicked() {
   if (!volumeIsMuted) {
-    if (!song.isPlaying()) {
-      song.play();
+    if (song.isPlaying()) {
+      song.pause();
+    }else{
+      song.play()
     }
   }
 }
