@@ -5,7 +5,8 @@ class SignUpForm {
       "placeholder",
       "Password"
     );
-    this.logoUrl = "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/logo.png"
+    this.logoUrl =
+      "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/logo.png";
     this.logoImage = createImg(this.logoUrl);
     this.loginButton = createButton("Log In");
     this.signupButton = createButton("Sign Up");
@@ -72,13 +73,13 @@ class SignUpForm {
   }
 
   display() {
+    this.logoImage.position(width / 3.2, 10);
+
     this.email.class("email");
     this.password.class("email");
-    // this.logoImage = createElement("h1");
+
     this.loginButton.class("loginButton");
     this.signupButton.class("loginButton");
-
-    this.logoImage.position(width /3.2,10);
 
     this.email.position(width / 2.3, height / 2 - 120);
     this.password.position(width / 2.3, height / 2 - 60);

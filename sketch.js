@@ -12,7 +12,8 @@ var backgroundImage;
 var song;
 var volume, mute, welcome;
 var volumeIsMuted = false;
-
+var randomWords = require("random-words");
+console.log(randomWords(3));
 function preload() {
   backgroundImage = loadImage("./assets/bg.jpg");
   volume = loadImage("./assets/volume.png");
@@ -47,6 +48,8 @@ function setup() {
 
 function draw() {
   background(backgroundImage);
+  // console.log(randomWords(5));
+
   welcome.display();
   if (gameState === null || gameState === 0) {
     game.start();
