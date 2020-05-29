@@ -105,5 +105,4 @@ dist
 
 
 # cloud methods
-
-.cloud_methods/
+cloud_methods/
