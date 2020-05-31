@@ -13,15 +13,14 @@ class Teacher {
 
   hideElements() {
     this.message.hide();
-    this.secretWord.hide();
     this.nameInput.hide();
     this.playButton.hide();
   }
 
   setElementPosition() {
     this.generateSecretWord.position(width / 2.3, height / 2 - 100);
-    this.message.position(width / 3, height / 2 - 300);
-    this.secretWord.position(width / 2.3, height / 2 - 250);
+    this.message.position(width / 2.7, height / 2 - 250);
+    this.secretWord.position(width / 2.3, height / 2 - 200);
   }
 
   setElementStyle() {
@@ -45,9 +44,21 @@ class Teacher {
     var url = `https://us-central1-trail-car-racing-game.cloudfunctions.net/genrateToken?secret_word=${word}`;
     httpGet(url, "json", false, (response) => {
       if (response.success) {
+        db.ref(`users/${word}`).update({
+          id: word,
+          game_state: 0,
+          player_count: 0,
+          player_rank: 0,
+          cars_at_end: 0,
+        });
         this.login(response.token, word);
       } else {
-        // TODO: Add Swal Pop up
+        swal({
+          title: `Unsuccessfull Login`,
+          text: `${response.error_message}`,
+          type: "error",
+          confirmButtonText: "Ok",
+        });
       }
     });
   }
@@ -61,7 +72,12 @@ class Teacher {
       .catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // TODO: Add Swal Pop up
+        swal({
+          title: `Unsuccessfull Login`,
+          text: `${errorMessage}`,
+          type: "error",
+          confirmButtonText: "Ok",
+        });
       });
   }
 
@@ -88,7 +104,9 @@ class Teacher {
       this.greeting.position(width / 2 - 70, height / 4);
 
       this.greeting2.html("Waiting for other players to join ....");
-      this.greeting2.position(width / 3, height / 3.2);
+      this.greeting2.position(width / 2.5, height / 3.2);
+
+      this.secretWord.position(width / 2.3, height / 2.5);
     });
   }
 

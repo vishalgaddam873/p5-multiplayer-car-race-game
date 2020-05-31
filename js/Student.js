@@ -35,7 +35,12 @@ class Student {
       if (response.success) {
         this.login(response.token, word);
       } else {
-        // TODO: Add Swal Pop up
+        swal({
+          title: `Unsuccessfull Login`,
+          text: `${response.error_message}`,
+          type: "error",
+          confirmButtonText: "Ok",
+        });
       }
     });
   }

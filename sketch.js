@@ -3,8 +3,9 @@ var backgroundImage, track, car1_img, car2_img;
 var fireAuth, db;
 var game, welcome, teacher, student;
 var secret_word;
-var player, playerCount, allPlayers;
+var player, allPlayers;
 var gameState = null;
+var playerCount;
 function preload() {
   backgroundImage = loadImage("./assets/bg.jpg");
   track = loadImage("./assets/track.jpg");
@@ -48,6 +49,7 @@ function draw() {
     teacher.greeting.hide();
     teacher.greeting2.hide();
     teacher.playButton.hide();
+    teacher.secretWord.hide();
 
     game.play();
   }
