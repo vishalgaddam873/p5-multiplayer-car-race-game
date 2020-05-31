@@ -1,20 +1,13 @@
 class Game {
-  constructor() {
-    this.resetUrl = "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/settings.png"
-    this.reset = createImg(this.resetUrl);
-  }
-
-  getState(email) {
-    emailKey = email.split("@").join("").split(".").join("");
-
-    var gameStateRef = db.ref(`users/${emailKey}/game_state/`);
+  getState(secret_word) {
+    var gameStateRef = db.ref(`users/${secret_word}/game_state/`);
     gameStateRef.on("value", function (data) {
       gameState = data.val();
     });
   }
 
   update(state) {
-    db.ref(`users/${emailKey}/`).update({
+    db.ref(`users/${secret_word}/`).update({
       game_state: state,
     });
   }
@@ -22,29 +15,23 @@ class Game {
   async start() {
     // When user visit the page
     if (gameState === null) {
-      signUp.display();
+      welcome.display();
     }
 
     // //When user loged in successfully
     if (gameState === 0) {
       var playerCountRef = await db
-        .ref(`users/${emailKey}/player_count/`)
+        .ref(`users/${secret_word}/player_count/`)
         .once("value");
 
       if (playerCountRef.exists()) {
         playerCount = playerCountRef.val();
         player.getCount();
       }
-
-      form.display();
     }
   }
 
   play() {
-    form.hide();
-    this.reset.class("volumeButton");
-    this.reset.position(width - 150, 200);
-
     Player.getPlayerInfo();
     player.getCarsAtEnd();
 
@@ -71,7 +58,6 @@ class Game {
         y = height - allPlayers[plr].distance;
         cars[index - 1].x = x;
         cars[index - 1].y = y;
-        // console.log(index, player.index);
 
         if (index === player.index) {
           stroke(10);
@@ -103,18 +89,8 @@ class Game {
       });
     }
 
-    this.reset.mousePressed(() => {
-      player.updateCount(0);
-      game.update(0);
-      Player.updateCarsAtEnd(0);
-      window.location.reload();
-    });
-
     drawSprites();
   }
 
-  end() {
-    // console.log("Game Ended");
-    // console.log(player.rank);
-  }
+  end() {}
 }

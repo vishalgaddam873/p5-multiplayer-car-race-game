@@ -22,7 +22,7 @@ h2, h3 {
 }
 
 
-.email {
+.customInput {
   width:200px;
   height:30px;
   border: 1px solid black;
@@ -34,10 +34,10 @@ h2, h3 {
 }
 
 
-.loginButton {
+.customButton {
   width:200px;
   height:60px;
-  background-color: #fea834; 
+  background-color: #fea834;
   border: none;
   color: #000;
   font-weight:bold;

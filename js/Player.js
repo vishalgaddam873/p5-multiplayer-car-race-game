@@ -7,41 +7,41 @@ class Player {
   }
 
   getCount() {
-    var playerCountRef = db.ref(`users/${emailKey}/player_count/`);
+    var playerCountRef = db.ref(`users/${secret_word}/player_count/`);
     playerCountRef.on("value", (data) => {
       playerCount = data.val();
     });
   }
 
   updateCount(count) {
-    db.ref(`users/${emailKey}/`).update({
+    db.ref(`users/${secret_word}/`).update({
       player_count: count,
     });
   }
 
   update() {
     var playerIndex = "players/player" + this.index;
-    db.ref(`users/${emailKey}/${playerIndex}`).set({
+    db.ref(`users/${secret_word}/${playerIndex}`).set({
       name: this.name,
       distance: this.distance,
     });
   }
 
   static getPlayerInfo() {
-    var playerInfoRef = db.ref(`users/${emailKey}/players/`);
+    var playerInfoRef = db.ref(`users/${secret_word}/players/`);
     playerInfoRef.on("value", (data) => {
       allPlayers = data.val();
     });
   }
 
   getCarsAtEnd() {
-    db.ref(`users/${emailKey}/cars_at_end/`).on("value", (data) => {
+    db.ref(`users/${secret_word}/cars_at_end/`).on("value", (data) => {
       this.rank = data.val();
     });
   }
 
   static updateCarsAtEnd(rank) {
-    db.ref(`users/${emailKey}/`).update({
+    db.ref(`users/${secret_word}/`).update({
       cars_at_end: rank,
     });
   }
