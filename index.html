@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SPEED RACER</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon.png"
+    />
+
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.min.js"></script>
+    <script src="lib/p5.sound.min.js"></script>
+    <script src="lib/p5.play.js"></script>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./lib/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./lib/sweetalert.css" />
+
+    <!-- Previously loaded Firebase SDKs -->
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBCG41s5vdyoUWER0RZzmGB3M5BLL1NKL0",
+        authDomain: "trial-car-racing-game.firebaseapp.com",
+        databaseURL: "https://trial-car-racing-game.firebaseio.com",
+        projectId: "trial-car-racing-game",
+        storageBucket: "trial-car-racing-game.appspot.com",
+        messagingSenderId: "602831509583",
+        appId: "1:602831509583:web:de5198f3a66276c0b3b23a",
+        measurementId: "G-C8Z3WRYQCG"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <script src="js/Welcome.js"></script>
+    <script src="js/Teacher.js"></script>
+    <script src="js/Student.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Game.js"></script>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
