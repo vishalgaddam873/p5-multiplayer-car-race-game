@@ -19,8 +19,8 @@ class Teacher {
 
   setElementPosition() {
     this.generateSecretWord.position(width / 2.3, height / 2 - 100);
-    this.message.position(width / 2 - 150, height / 2);
-    this.secretWord.position(width / 2 - 100, height / 2 + 50);
+    this.message.position(width / 2.7, height / 2 - 250);
+    this.secretWord.position(width / 2.3, height / 2 - 200);
   }
 
   setElementStyle() {
@@ -42,14 +42,14 @@ class Teacher {
 
   getToken(word) {
     var url = `https://us-central1-trial-car-racing-game.cloudfunctions.net/genrateToken?secret_word=${word}`;
-    httpGet(url, "json", false, response => {
+    httpGet(url, "json", false, (response) => {
       if (response.success) {
         db.ref(`users/${word}`).update({
           id: word,
           game_state: 0,
           player_count: 0,
           player_rank: 0,
-          cars_at_end: 0
+          cars_at_end: 0,
         });
         this.login(response.token, word);
       } else {
@@ -57,7 +57,7 @@ class Teacher {
           title: `Unsuccessfull Login`,
           text: `${response.error_message}`,
           type: "error",
-          confirmButtonText: "Ok"
+          confirmButtonText: "Ok",
         });
       }
     });
@@ -69,14 +69,14 @@ class Teacher {
       .then(() => {
         game.getState(secret_word);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         var errorCode = error.code;
         var errorMessage = error.message;
         swal({
           title: `Unsuccessfull Login`,
           text: `${errorMessage}`,
           type: "error",
-          confirmButtonText: "Ok"
+          confirmButtonText: "Ok",
         });
       });
   }
@@ -90,7 +90,7 @@ class Teacher {
       this.secretWord.html(`Secret Word = ${secret_word}`);
 
       this.nameInput.position(width / 2.3, height / 2 - 120);
-      this.playButton.position(width / 2 - 86, height / 2 - 60);
+      this.playButton.position(width / 2.3, height / 2 - 60);
     });
 
     this.playButton.mousePressed(() => {
@@ -98,16 +98,15 @@ class Teacher {
       player.name = this.nameInput.value();
       playerCount += 1;
       player.index = playerCount;
-      player.addPlayer();
+      player.update();
       player.updateCount(playerCount);
       this.greeting.html("Hello " + player.name);
-      this.greeting.position(width / 2 - 70, height / 2.8);
+      this.greeting.position(width / 2 - 70, height / 4);
 
       this.greeting2.html("Waiting for other players to join ....");
-      this.greeting2.position(width / 2.5, height / 2.5);
+      this.greeting2.position(width / 2.5, height / 3.2);
 
-      this.secretWord.position(width / 2.3, height / 2);
-      player.getDistance();
+      this.secretWord.position(width / 2.3, height / 2.5);
     });
   }
 
